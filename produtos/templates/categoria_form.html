@@ -1,0 +1,22 @@
+{% extends "categoria_list.html" %}
+
+{% load bootstrap5 %}
+
+{% block conteudo %}
+{% if categoria %}
+<h3>Atualizar Categoria</h3>
+{% else %}
+<h3>Nova Categoria</h3>
+{% endif %}
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            {% for campo in form %}
+            {% bootstrap_field campo %}
+            {% endfor %}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+{% endblock %}
